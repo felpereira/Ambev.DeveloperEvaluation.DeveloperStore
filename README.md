@@ -4,7 +4,7 @@ Para executar e depurar o projeto localmente, utilizamos o Docker para simplific
 
 #### **Pré-requisitos**
 
-* **Docker Desktop:** Certifique-se de que ele esteja [instalado](https://www.docker.com/products/docker-desktop/) e em execução na sua máquina.
+- **Docker Desktop:** Certifique-se de que ele esteja [instalado](https://www.docker.com/products/docker-desktop/) e em execução na sua máquina.
 
 #### **Instruções para Iniciar o Ambiente**
 
@@ -16,7 +16,19 @@ Para executar e depurar o projeto localmente, utilizamos o Docker para simplific
     docker-compose up -d
     ```
 
-    * **`up`**: Cria e inicia os contêineres.
-    * **`-d`**: (detached mode) Executa os contêineres em segundo plano, liberando seu terminal.
+    - **`up`**: Cria e inicia os contêineres.
+    - **`-d`**: (detached mode) Executa os contêineres em segundo plano, liberando seu terminal.
 
 Ao final do processo, o banco de dados e outros serviços estarão prontos para receber conexões da aplicação.
+
+---
+
+#### **Qualidade de Código**
+
+- **Formatar o código da solução**
+
+  Aplica as regras de formatação do `.editorconfig` em todos os arquivos do projeto. É recomendado executar este comando antes de cada `commit`.
+
+  ```bash
+  dotnet format Ambev.DeveloperEvaluation.sln
+  ```
