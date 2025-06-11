@@ -32,3 +32,23 @@ Ao final do processo, o banco de dados e outros serviços estarão prontos para 
   ```bash
   dotnet format Ambev.DeveloperEvaluation.sln
   ```
+
+  #### **Entity Framework Core**
+
+Para usar os comandos do EF Core, a ferramenta `dotnet-ef` precisa estar instalada: `dotnet tool install --global dotnet-ef`.
+
+- **Criar uma nova Migration**
+
+  Gera um novo arquivo de migration com base nas alterações feitas nas suas entidades do EF Core.
+
+  ```bash
+  dotnet ef migrations add NomeDaSuaMigration --project src/Ambev.DeveloperEvaluation.ORM --startup-project src/Ambev.DeveloperEvaluation.WebApi
+  ```
+
+- **Aplicar Migrations ao Banco de Dados**
+
+  Aplica todas as migrations pendentes no banco de dados. Este comando é útil para atualizar o banco de dados local sem precisar rodar a aplicação.
+
+  ```bash
+  dotnet ef database update --startup-project src/Ambev.DeveloperEvaluation.WebApi
+  ```

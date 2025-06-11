@@ -12,13 +12,13 @@ using Serilog;
 
 namespace Ambev.DeveloperEvaluation.WebApi;
 
-public class Program
+public static class Program
 {
     public static void Main(string[] args)
     {
         try
         {
-            Log.Information("Starting web application");
+            Log.Information("Starting web application1");
 
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
             builder.AddDefaultLogging();
