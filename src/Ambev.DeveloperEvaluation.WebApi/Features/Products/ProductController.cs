@@ -3,12 +3,14 @@ using Ambev.DeveloperEvaluation.Application.Products.DeleteProduct;
 using Ambev.DeveloperEvaluation.Application.Products.GetAllProducts;
 using Ambev.DeveloperEvaluation.Application.Products.GetCategories;
 using Ambev.DeveloperEvaluation.Application.Products.GetProductById;
+using Ambev.DeveloperEvaluation.Application.Products.GetProductsByCategories;
 using Ambev.DeveloperEvaluation.Application.Products.UpdateProduct;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.DeleteProduct;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetAllProducts;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetCategories;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProductById;
+using Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProductsByCategories;
 using Ambev.DeveloperEvaluation.WebApi.Features.Products.UpdateProduct;
 using AutoMapper;
 using MediatR;
@@ -128,6 +130,18 @@ public class ProductController(IMapper mapper, ISender sender) : ControllerBase
 
         var result = await _sender.Send(command, cancellationToken);
         var response = _mapper.Map<UpdateProductResponse>(result);
+        return Ok(response);
+    }
+
+    [HttpGet("categories/{category}")]
+    // [Authorize]
+    [ProducesResponseType(typeof(GetProductsByCategoriesResponse), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetProductsByCategories([FromRoute] string category, [FromQuery] GetProductsByCategoriesRequest pagination, CancellationToken cancellationToken)
+    {
+        var query = new GetProductsByCategoriesQuery(category, pagination.Page, pagination.Limit);
+        var result = await _sender.Send(query, cancellationToken);
+        var response = _mapper.Map<GetProductsByCategoriesResponse>(result);
         return Ok(response);
     }
 }
