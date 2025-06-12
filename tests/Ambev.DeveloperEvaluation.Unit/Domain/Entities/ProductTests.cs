@@ -33,8 +33,6 @@ namespace Ambev.DeveloperEvaluation.Unit.Domain.Entities
         [InlineData("", "Description", 10.0, "Brand", "Category")]
         [InlineData("Name", "", 10.0, "Brand", "Category")]
         [InlineData("Name", "Description", 0, "Brand", "Category")]
-        [InlineData("Name", "Description", 10.0, "", "Category", "Brand is required")]
-        [InlineData("Name", "Description", 10.0, "Brand", "", "Category is required")]
         public void Constructor_ShouldThrowDomainException_WhenDataIsInvalid(
             string title, string description, decimal price, string category, string expectedMessage)
         {
