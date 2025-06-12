@@ -35,16 +35,9 @@ namespace Ambev.DeveloperEvaluation.Unit.Application.Products.Validators
     }
 
     // UPDATE PRODUCT VALIDATOR TESTS
-
     // DELETE PRODUCT VALIDATOR TESTS
-
-
     // GET PRODUCT BY ID VALIDATOR TESTS
-
-
     // GET ALL PRODUCTS VALIDATOR TESTS
-
-
     // GET PRODUCTS BY CATEGORIES VALIDATOR TESTS
 
 }
