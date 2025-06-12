@@ -1,11 +1,8 @@
-// Ambev.DeveloperEvaluation.Application.Products.GetProductById/GetProductByIdQueryValidator.cs
 using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.Application.Products.GetProductById;
 
-/// <summary>
-/// Validador para a query GetProductsByIdQuery.
-/// </summary>
+
 public class GetProductsByIdQueryValidator : AbstractValidator<GetProductsByIdQuery>
 {
     public GetProductsByIdQueryValidator()

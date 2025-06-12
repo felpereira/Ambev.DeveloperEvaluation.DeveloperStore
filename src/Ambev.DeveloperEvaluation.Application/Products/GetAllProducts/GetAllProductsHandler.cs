@@ -1,4 +1,3 @@
-// Ambev.DeveloperEvaluation.Application.Products.GetAllProducts/GetAllProductsHandler.cs
 using Ambev.DeveloperEvaluation.Application.Common.DTOs;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
 using AutoMapper;

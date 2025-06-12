@@ -2,10 +2,6 @@ using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Products.GetProductsByCategories;
 
-/// <summary>
-/// Validador para a requisição de busca de produtos por categoria.
-/// Valida apenas os parâmetros de paginação, pois a categoria é parte da rota.
-/// </summary>
 public class GetProductsByCategoriesRequestValidator : AbstractValidator<GetProductsByCategoriesRequest>
 {
     public GetProductsByCategoriesRequestValidator()

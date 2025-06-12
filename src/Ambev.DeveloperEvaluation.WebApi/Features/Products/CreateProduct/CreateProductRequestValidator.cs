@@ -1,12 +1,9 @@
-// Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct/CreateProductRequestValidator.cs
 using Ambev.DeveloperEvaluation.Application.Common; // Para o ProductRatingDtoValidator
 using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct;
 
-/// <summary>
-/// Validador para o request de criação de produto.
-/// </summary>
+
 public class CreateProductRequestValidator : AbstractValidator<CreateProductRequest>
 {
     public CreateProductRequestValidator()

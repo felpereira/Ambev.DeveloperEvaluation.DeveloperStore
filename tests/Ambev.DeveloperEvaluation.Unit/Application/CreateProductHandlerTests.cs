@@ -14,7 +14,6 @@ using Ambev.DeveloperEvaluation.Application.Products.GetProductsByCategories;
 using Ambev.DeveloperEvaluation.Application.Products.GetCategories;
 using Xunit;
 
-// In a real scenario, they would be in separate files.
 
 namespace Ambev.DeveloperEvaluation.Unit.Application.Products
 {

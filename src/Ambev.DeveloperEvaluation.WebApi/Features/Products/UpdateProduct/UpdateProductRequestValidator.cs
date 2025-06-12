@@ -37,10 +37,6 @@ public class UpdateProductRequestValidator : AbstractValidator<UpdateProductRequ
     }
 }
 
-/// <summary>
-/// Validador para o DTO de avaliação de produto.
-/// Esta classe é reutilizada por outros validadores.
-/// </summary>
 public class ProductRatingDtoValidator : AbstractValidator<ProductRatingDto>
 {
     public ProductRatingDtoValidator()

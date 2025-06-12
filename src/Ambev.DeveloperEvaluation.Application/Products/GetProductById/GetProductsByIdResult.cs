@@ -1,11 +1,8 @@
-// Ambev.DeveloperEvaluation.Application.Products.GetProductById/GetProductsByIdResult.cs
 using Ambev.DeveloperEvaluation.Application.Common.DTOs;
 
 namespace Ambev.DeveloperEvaluation.Application.Products.GetProductById;
 
-/// <summary>
-/// Representa os dados de um produto retornado pela consulta por Id.
-/// </summary>
+
 public class GetProductsByIdResult
 {
     public Guid Id { get; init; }

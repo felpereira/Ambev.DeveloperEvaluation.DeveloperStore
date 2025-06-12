@@ -1,4 +1,3 @@
-// Ambev.DeveloperEvaluation.Application.Products.GetProductById/GetProductsByIdProfile.cs
 using Ambev.DeveloperEvaluation.Application.Common.DTOs;
 using Ambev.DeveloperEvaluation.Domain.Entities;
 using AutoMapper;

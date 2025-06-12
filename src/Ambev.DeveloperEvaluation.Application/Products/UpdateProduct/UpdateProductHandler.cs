@@ -1,4 +1,3 @@
-// Ambev.DeveloperEvaluation.Application.Products.UpdateProduct/UpdateProductHandler.cs
 using Ambev.DeveloperEvaluation.Application.Common.Exceptions;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
 using AutoMapper;

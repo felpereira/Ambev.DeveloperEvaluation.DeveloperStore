@@ -1,4 +1,3 @@
-// Ambev.DeveloperEvaluation.Application.Products.GetProductById/GetProductsByIdHandler.cs
 using Ambev.DeveloperEvaluation.Application.Common.Exceptions;
 using Ambev.DeveloperEvaluation.Domain.Repositories;
 using AutoMapper;

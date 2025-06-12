@@ -23,13 +23,13 @@ public class UpdateProductCommandValidator : AbstractValidator<UpdateProductComm
 
         RuleFor(x => x.Category)
             .NotEmpty()
-            .WithMessage("A categoria do produto é obrigatória."); // Mensagem corrigida.
+            .WithMessage("A categoria do produto é obrigatória.");
 
         RuleFor(x => x.Description)
             .NotEmpty()
             .WithMessage("A descrição do produto é obrigatória.");
 
-        // Reutiliza o validador do DTO de avaliação que já criamos.
+
         RuleFor(x => x.Rating)
             .NotNull()
             .SetValidator(new ProductRatingDtoValidator());

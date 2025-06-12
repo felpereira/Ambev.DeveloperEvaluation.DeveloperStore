@@ -1,11 +1,8 @@
-// Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct/CreateProductResponse.cs
 using Ambev.DeveloperEvaluation.Application.Common.DTOs;
 
 namespace Ambev.DeveloperEvaluation.WebApi.Features.Products.CreateProduct;
 
-/// <summary>
-/// Representa a resposta da API após a criação bem-sucedida de um produto.
-/// </summary>
+
 public record CreateProductResponse
 {
     public Guid Id { get; init; }
