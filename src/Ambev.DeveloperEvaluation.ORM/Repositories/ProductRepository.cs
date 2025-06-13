@@ -42,7 +42,7 @@ namespace Ambev.DeveloperEvaluation.ORM.Repositories
 
         public async Task<Product?> GetByIdAsync(Guid id, CancellationToken cancellationToken)
         {
-            return await _context.Products
+            return await _context.Products.AsNoTracking()
                 .FirstOrDefaultAsync(p => p.Id == id, cancellationToken);
         }
 
