@@ -22,7 +22,6 @@ As principais tecnologias e práticas adotadas no projeto são:
 
 Para executar e depurar o projeto localmente, utilizamos o Docker para simplificar a configuração e o gerenciamento de serviços externos, como o banco de dados. Isso garante um ambiente padronizado e evita a necessidade de instalar e configurar manualmente cada dependência.
 
-
 #### **Pré-requisitos**
 
 - **Docker Desktop:** Certifique-se de que ele esteja [instalado](https://www.docker.com/products/docker-desktop/) e em execução.
@@ -37,8 +36,8 @@ Para executar e depurar o projeto localmente, utilizamos o Docker para simplific
    docker-compose up -d
    ```
 
-1. **Clone o repositório** usando o Visual Studio.
-2. **Configure a string de conexão:**
+4. **Clone o repositório** usando o Visual Studio.
+5. **Configure a string de conexão:**
    - Acesse o arquivo: `src/Ambev.DeveloperEvaluation.WebApi/appsettings.json`
    - Atualize a `DefaultConnection` com os dados do seu banco PostgreSQL:
      ```json
@@ -46,8 +45,8 @@ Para executar e depurar o projeto localmente, utilizamos o Docker para simplific
        "DefaultConnection": "Server={servidor};Database={nome-do-banco};User Id={usuario};Password={senha};TrustServerCertificate=True"
      }
      ```
-3. **Defina o projeto de inicialização:** No Visual Studio, clique com o botão direito no projeto `Ambev.DeveloperEvaluation.WebApi` e selecione "Definir como projeto de inicialização".
-4. **Execute a aplicação** no modo **HTTPS**.
+6. **Defina o projeto de inicialização:** No Visual Studio, clique com o botão direito no projeto `Ambev.DeveloperEvaluation.WebApi` e selecione "Definir como projeto de inicialização".
+7. **Execute a aplicação** no modo **HTTPS**.
 
 ---
 
@@ -94,8 +93,16 @@ dotnet format Ambev.DeveloperEvaluation.sln
 
 ---
 
+## 📖 Funcionalidade
+
+- Criação da ordem de compra.
+
+![Fluxo](./.docs/fluxo.png)
+
+---
+
 ## 👨‍💻 Autor
 
-Agradecimento especial Kaique da Mouts, e as avaliadores da AMBEV, infelizmente entrego o trabalho não finalizado, mas prometo que irei me dedicar a finalizar mesmo não avançando nas etapas.
+Agradecimento especial Kaique da Mouts, e as avaliadores da AMBEV.
 
 💡 **Contribuições e feedbacks são muito bem-vindos!** 🚀
