@@ -105,4 +105,10 @@ dotnet format Ambev.DeveloperEvaluation.sln
 
 Agradecimento especial Kaique da Mouts, e as avaliadores da AMBEV.
 
+- [x] Crianção do Fluxo de Produtos
+- [ ] Crianção do Carrinho \*
+- [ ] Crianção da Ordem de Compra
+
+`* Finalizado parcialmente`
+
 💡 **Contribuições e feedbacks são muito bem-vindos!** 🚀
