@@ -1,18 +1,18 @@
 using System;
 using System.Collections.Generic;
 
-namespace Ambev.DeveloperEvaluation.Application.Carts.CreateCart
+namespace Ambev.DeveloperEvaluation.Application.Carts.UpdateCart
 {
-    public class CreateCartResult
+    public class UpdateCartResult
     {
         public Guid Id { get; set; }
         public Guid UserId { get; set; }
         public DateTime Date { get; set; }
+        public List<CartItemResult> Items { get; set; } = [];
         public decimal Total { get; set; }
-        public List<CartItemResultDto> Items { get; set; } = new();
     }
 
-    public class CartItemResultDto
+    public class CartItemResult
     {
         public Guid ProductId { get; set; }
         public string ProductName { get; set; } = string.Empty;

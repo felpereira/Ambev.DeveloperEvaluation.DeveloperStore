@@ -25,6 +25,13 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
             Discount = 0;
         }
 
+        public static CartItem Create(Guid productId, int quantity, decimal unitPrice, Guid cartId)
+        {
+            var item = new CartItem(productId, quantity, unitPrice);
+            item.Id = cartId;
+            return item;
+        }
+
         public static CartItem Create(Guid productId, int quantity, decimal unitPrice)
         {
             return new CartItem(productId, quantity, unitPrice);

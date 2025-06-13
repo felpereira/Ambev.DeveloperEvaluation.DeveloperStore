@@ -1,15 +1,19 @@
 using MediatR;
+using System;
+using System.Collections.Generic;
 
 namespace Ambev.DeveloperEvaluation.Application.Carts.UpdateCart
 {
-    public record UpdateCartCommand : IRequest<Unit>
+
+    public class UpdateCartCommand : IRequest<UpdateCartResult>
     {
         public Guid Id { get; set; }
-        public int UserId { get; init; }
-        public List<CartItemCommand> Products { get; init; } = new();
+        public List<UpdateCartItemDto> Items { get; set; } = [];
     }
 
-    public record CartItemCommand(
-        Guid ProductId,
-        int Quantity);
+    public class UpdateCartItemDto
+    {
+        public Guid ProductId { get; set; }
+        public int Quantity { get; set; }
+    }
 }

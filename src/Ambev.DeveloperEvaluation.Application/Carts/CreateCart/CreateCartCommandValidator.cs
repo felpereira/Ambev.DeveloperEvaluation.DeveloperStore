@@ -1,4 +1,3 @@
-using Ambev.DeveloperEvaluation.Application.Products.CreateProduct;
 using FluentValidation;
 
 namespace Ambev.DeveloperEvaluation.Application.Carts.CreateCart
@@ -7,18 +6,26 @@ namespace Ambev.DeveloperEvaluation.Application.Carts.CreateCart
     {
         public CreateCartCommandValidator()
         {
-            RuleFor(v => v.UserId).NotEmpty();
-            RuleFor(v => v.Products).NotEmpty();
-            RuleForEach(v => v.Products).SetValidator(new CartItemCommandValidator());
+            RuleFor(v => v.UserId)
+                .NotEmpty().WithMessage("O ID do usuário é obrigatório.");
+
+            RuleFor(v => v.Products)
+                .NotEmpty().WithMessage("A lista de produtos não pode ser vazia.");
+
+            RuleForEach(v => v.Products)
+                .SetValidator(new CreateCartItemDtoValidator());
         }
     }
 
-    public class CartItemCommandValidator : AbstractValidator<CartItemCommand>
+    public class CreateCartItemDtoValidator : AbstractValidator<CreateCartItemDto>
     {
-        public CartItemCommandValidator()
+        public CreateCartItemDtoValidator()
         {
-            RuleFor(p => p.ProductId).NotEmpty();
-            RuleFor(p => p.Quantity).GreaterThan(0);
+            RuleFor(p => p.ProductId)
+                .NotEmpty().WithMessage("O ID do produto é obrigatório.");
+
+            RuleFor(p => p.Quantity)
+                .GreaterThan(0).WithMessage("A quantidade do produto deve ser maior que zero.");
         }
     }
 }

@@ -5,12 +5,11 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
 {
     public class Cart : Entity<Guid>
     {
-        public Guid UserId { get; private set; }
-        public DateTime Date { get; private set; }
+        public Guid UserId { get; set; }
+        public DateTime Date { get; set; }
 
-        private readonly List<CartItem> _items = [];
-        public IReadOnlyCollection<CartItem> Items => _items.AsReadOnly();
-
+        // private readonly List<CartItem> _items = [];
+        public ICollection<CartItem> Items { get; set; } = new List<CartItem>();
         // Construtor para o EF Core.
         private Cart() { }
 
@@ -19,7 +18,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
         {
             Id = Guid.NewGuid();
             UserId = userId;
-            Date = DateTime.UtcNow;
+            // Date = DateTime.UtcNow;
         }
 
         public static Cart Create(Guid userId)
@@ -32,12 +31,12 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
             if (product is null)
                 throw new ArgumentNullException(nameof(product));
 
-            var existingItem = _items.FirstOrDefault(i => i.ProductId == product.Id);
-            int newQuantity = quantity;
+            var existingItem = Items.FirstOrDefault(i => i.ProductId == product.Id);
+            int newQuantity = quantity; 
 
             if (existingItem != null)
             {
-                newQuantity += existingItem.Quantity;
+                newQuantity = existingItem.Quantity;
             }
 
             ValidateItemQuantity(newQuantity);
@@ -49,16 +48,21 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
             }
             else
             {
-                var newItem = CartItem.Create(product.Id, quantity, product.Price);
+                var newItem = CartItem.Create(product.Id, quantity, product.Price, Guid.Empty);
                 ApplyBusinessRules(newItem);
-                _items.Add(newItem);
+                Items.Add(newItem);
             }
-            Date = DateTime.UtcNow;
+
+        }
+
+        public void ClearItems()
+        {
+            Items.Clear();
         }
 
         public void UpdateItem(Guid productId, int quantity)
         {
-            var item = _items.FirstOrDefault(i => i.ProductId == productId);
+            var item = Items.FirstOrDefault(i => i.ProductId == productId);
             if (item == null)
                 throw new KeyNotFoundException("Produto não encontrado no carrinho.");
 
@@ -66,7 +70,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
 
             if (quantity == 0)
             {
-                _items.Remove(item);
+                Items.Remove(item);
             }
             else
             {
@@ -74,16 +78,16 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
                 ApplyBusinessRules(item);
             }
 
-            Date = DateTime.UtcNow;
+            // Date = DateTime.UtcNow;
         }
 
         public void RemoveItem(Guid productId)
         {
-            var item = _items.FirstOrDefault(i => i.ProductId == productId);
+            var item = Items.FirstOrDefault(i => i.ProductId == productId);
             if (item != null)
             {
-                _items.Remove(item);
-                Date = DateTime.UtcNow;
+                Items.Remove(item);
+                // Date = DateTime.UtcNow;
             }
         }
 
@@ -114,7 +118,7 @@ namespace Ambev.DeveloperEvaluation.Domain.Entities
 
         public decimal GetTotalAmount()
         {
-            return _items.Sum(item =>
+            return Items.Sum(item =>
                 (item.Quantity * item.UnitPrice) * (1 - item.Discount)
             );
         }

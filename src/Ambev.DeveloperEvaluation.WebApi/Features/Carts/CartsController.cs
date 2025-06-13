@@ -3,7 +3,6 @@ using Ambev.DeveloperEvaluation.Application.Carts.DeleteCart;
 using Ambev.DeveloperEvaluation.Application.Carts.GetAllCarts;
 using Ambev.DeveloperEvaluation.Application.Carts.GetCartById;
 using Ambev.DeveloperEvaluation.Application.Carts.UpdateCart;
-using Ambev.DeveloperEvaluation.Application.Products.CreateProduct;
 using Ambev.DeveloperEvaluation.WebApi.Common;
 using Ambev.DeveloperEvaluation.WebApi.Features.Carts.CreateCart;
 using Ambev.DeveloperEvaluation.WebApi.Features.Carts.GetAllCarts;
@@ -22,7 +21,6 @@ namespace Ambev.DeveloperEvaluation.WebApi.Features.Carts
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
     public class CartsController : ControllerBase
     {
         private readonly ISender _sender;
